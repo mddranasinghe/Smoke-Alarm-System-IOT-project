@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoke Alarm System</title>
+    <style>
+        .container {
+            position: relative;
+            width: 95%;
+            height: 100%;
+            margin: 0 auto;
+            top: 10px;
+        }
+        .sensor {
+            width: 45%; /* Set width as percentage */
+            height:20vw;
+            border: 2px solid black;
+            position: absolute;
+        }
+        .sensor:nth-child(1) {
+            left: 0;
+            margin-right: 5%; /* Adjust the space between divs */
+        }
+        .sensor:nth-child(2) {
+            right: 0;
+            margin-left: 5%; /* Adjust the space between divs */
+        }
+        .sensor:nth-child(3) {
+            left: 0;
+            top: 30vw;
+            margin-right: 5%; /* Adjust the space between divs */
+        }
+        .sensor:nth-child(4) {
+            right: 0;
+            top: 30vw;
+            margin-left: 5%; /* Adjust the space between divs */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sensor"></div>
+        <div class="sensor"></div>
+        <div class="sensor"></div>
+        <div class="sensor"></div>
+    </div>
+</body>
+</html>
