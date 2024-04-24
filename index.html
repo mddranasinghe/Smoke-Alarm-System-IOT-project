@@ -14,57 +14,94 @@
 	box-sizing: border-box;
 }
 .main_div { width: 100%;margin: 0 auto;}
-.main_div p{ font-size: 4vw;}
 
-.sensores{ margin: 0 auto; width: 100%; height: 100%;border-collapse: separate; border-spacing: 15px;}
 
-.sensores td{ box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 10px;  height: 40vw; width: 100%; position: relative;}
+.sensores{ margin: 0 auto; width: 100%; height: 100%;}
+
+.sensores #location1, #location2,#location3 { box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 10px;  height: 40vw; width: 95%; position: relative; margin: 0 auto; margin-top: 20px;}
 
 
 
 img{
     position: absolute;
-    width: 20vw; 
-    height: 20vw;  
-    display: block;
+    width: 18vw; 
+    height: 18vw;  
+left:2%;
+top:2%;
 
-    margin-right: auto;
-   margin-top: -5%;
     }
 
-.sensores p{
+    .sensores p {
     position: absolute;
-   font-size: 4vw;
-   margin-top:-1%;
-   margin-left:25%;}
+    text-align: center;
+    font-size: 4vw;
+    left: 25%; /* Adjusted for centering */
+    top: 10%;
+    
+   /* Center the text horizontally */
+}
 
-#room {
+
+#location1,#location2 {
     border: 4px solid red;
     animation: mymove 1s infinite;
 }
 
 @keyframes mymove {
-    0%   { border-color: rgba(255, 0, 0, 1); } /* Red with full opacity */
-    100% { border-color: rgba(255, 0, 0, 0); } /* Red with zero opacity (fully transparent) */
+    0%   { border-color: rgba(255, 0, 0, 1); } 
+    100% { border-color: rgba(255, 0, 0, 0); } 
 }
 
+.infoBox{
+position: absolute;
+    width: 50vw;
+    height: 15vw;
+    background-color:#FFF1DC;
+    top:29%;
+    left:25%;
+     border-radius: 2vw;
+
+
+}
 .battery
 {
-
+    position: absolute;
   width:8% ;
   height: 10%;
   border: 1px solid;
   box-shadow: inset 0 0 0 .4vw white;
-  border-radius: 5px;
-  margin-left: 89%;
-  margin-top:-18.5% ; 
+  border-radius: .8vw;
+  right: 4%;
+  top:5%;
+
+ 
 }
 .progress{
-    position: relative;
+    position: absolute;
     width: 50%;
 height: 100%;
   background: #2e2;
   z-index: -1;}
+
+  .sensores button {
+    position: absolute;
+    width: 15vw;
+    height: 5vw;
+    margin-top: 10; /* Adjust the margin-top value as needed */
+    font-size: 3vw;
+    left: 50%;
+    top: 80%;
+    transform: translate(-50%, -50%);
+
+    
+}
+
+
+
+
+
+
+
   /*  @media only screen and (max-width: 600px) {
 
 	.img-container {width: 50px;  height: 50px; overflow: hidden; position: relative;} 
@@ -103,37 +140,33 @@ height: 100%;
 
 
 
-    <table class="sensores"> 
+    <div class="sensores"> 
     
-        <tr> 
-            <td id="room"> 
+    
+            <div id="location1"> 
             <div class="battery "style=" "> <div class="progress"></div> </div>
-                <img src="resources\image\smoke.png" class="img_td" alt="cctv" >
+                <img src="resources\image\living.png" class="img_td" alt="cctv" >
                 <p>Living Room</p>
-            </td>  
-        </tr>
-        <tr> 
-                <td> 
-                    <img src="resources\image\smoke.png" class="img_td" alt="cctv">
-                    <p>bed Room</p>
-                </td>
-        
-        
-            </tr>
-
-        <tr>
-            <td> 
-                <img src="resources\image\smoke.png" class="img_td" alt="cctv">
-            </td>       
-        </tr>
-        
-        <tr>
-            <td> 
-                <img src="resources\image\smoke.png" class="img_td" alt="cctv">
-            </td>
-        </tr>   
-    </table>
- 
+                <div class="infoBox"></div>
+                <div><button id="Living">off</button></div>
+            </div>  
+          
+            <div id="location2"> 
+                <div class="battery "style=" "> <div class="progress"></div> </div>
+                    <img src="resources\image\bedroom.png" class="img_td" alt="cctv" >
+                    <p>Bed Room</p>
+                    <div class="infoBox"></div>
+                    <div><button id="Living">off</button></div>
+                </div>  
+                         
+            <div id="location3"> 
+                <div class="battery "style=" "> <div class="progress"></div> </div>
+                    <img src="resources\image\kitchn.png" class="img_td" alt="cctv" >
+                    <p>Kitchen Room</p>
+                    <div class="infoBox"></div>
+                    <div><button id="Living">off</button></div>
+                </div>  
+ </div>
     <script>
 
     </script>
