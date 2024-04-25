@@ -181,14 +181,14 @@ color:blue;
                 <img src="resources\image\living.png" class="img_td" alt="living" >
                 <p><b>Living Room</b></p>
                 <div class="infoBox" id="inf_liv">*Device battery is running low</div>
-                <div><button id="button_liv" onclick="actionClose('button_liv')">reset</button></div>
+                <div><button id="button_liv" onclick="actionClose('liv','button_liv')">reset</button></div>
             </div>  
             <div id="msb"> 
                 <div class="battery "style=" "> <div class="progress" id="battery_msb"></div> </div>
                     <img src="resources\image\master.png" class="img_td" alt="cctv" >
                     <p><b> Master Bedroom </b></p>
                     <div class="infoBox" id="inf_msb">*Device battery is running low</div>
-                    <div><button id="button_msb" onclick="actionClose('button_msb')">reset</button></div>
+                    <div><button id="button_msb" onclick="actionClose('msb','button_msb')">reset</button></div>
                 </div>  
           
             <div id="br1"> 
@@ -196,7 +196,7 @@ color:blue;
                     <img src="resources\image\bedroom.png" class="img_td" alt="cctv" >
                     <p><b>Bedroom 1</b></p>
                     <div class="infoBox" id="inf_br1">*Device battery is running low</div>
-                    <div><button id="button_br1" onclick="actionClose('button_msb')">reset</button></div>
+                    <div><button id="button_br1" onclick="actionClose('br1','button_br1')">reset</button></div>
                 </div>  
                          
            
@@ -206,7 +206,7 @@ color:blue;
                         <img src="resources\image\bedroom.png" class="img_td" alt="cctv" >
                         <p><b>Bedroom 2</b></p>
                         <div class="infoBox" id="inf_br2">*Device battery is running low</div>
-                        <div><button id="button_br2"onclick="actionClose('button_msb')">reset</button></div>
+                        <div><button id="button_br2"onclick="actionClose('br2','button_br2')">reset</button></div>
                     </div>  
                              
           
@@ -215,7 +215,7 @@ color:blue;
                             <img src="resources\image\bedroom.png" class="img_td" alt="cctv" >
                             <p><b>Bedroom 3</b></p>
                             <div class="infoBox" id="inf_br3">*Device battery is running low</div>
-                            <div><button id="button_br3"onclick="actionClose('button_br3')">reset</button></div>
+                            <div><button id="button_br3"onclick="actionClose('br3','button_br3')">reset</button></div>
                         </div>
                         
                         <div id="kitchen"> 
@@ -223,7 +223,7 @@ color:blue;
                                 <img src="resources\image\kitchn.png" class="img_td" alt="cctv" >
                                 <p><b>Kitchen</b></p>
                                 <div class="infoBox" id="inf_kitchen">*Device battery is running low</div>
-                                <div><button id="button_kitchen"onclick="actionClose('button_kitchen')">reset</button></div>
+                                <div><button id="button_kitchen"onclick="actionClose('kitchen','button_kitchen')">reset</button></div>
                             </div>  
                                  
                     <div id="pantry"> 
@@ -231,14 +231,14 @@ color:blue;
                             <img src="resources\image\pantry.png" class="img_td" alt="cctv" >
                             <p><b>Pantry Room</b></p>
                             <div class="infoBox" id="inf_pantry">*Device battery is running low</div>
-                            <div><button id="button_pantry"onclick="actionClose('button_pantry')">reset</button></div>
+                            <div><button id="button_pantry"onclick="actionClose('pantry','button_pantry')">reset</button></div>
                         </div>  
                         <div id="servant"> 
                             <div class="battery "style=" "> <div class="progress" id="battery_servant"></div> </div>
                                 <img src="resources\image\servant.png" class="img_td" alt="ser" >
                                 <p><b>Servant Room</b></p>
                                 <div class="infoBox" id="inf_servant">*Device battery is running low</div>
-                                <div><button id="button_servant"onclick="actionClose('button_servant')">reset</button></div>
+                                <div><button id="button_servant"onclick="actionClose('servant','button_servant')">reset</button></div>
                             </div>  
  </div>
  <br><br>
@@ -264,23 +264,25 @@ document.getElementById('inf_kitchen').style.display='block';
 
 
 
-var payload
-  function actionClose(id1){
+var payload,id_loction,id_Button;
+  function actionClose(idL,idB){
   
         document.getElementById('popup').style.display = 'block';
         document.getElementById("overlay").style.display = "block";
-    id1Value=id1;
+        id_loction=idL;
+        d_Button=idB;
+
    
   }
 document.getElementById('yesButton').addEventListener('click', function() {
  
     document.getElementById('popup').style.display = 'none';
     document.getElementById("overlay").style.display = "none";
-    if (id1Value) {
-        document.getElementById('liv').style.border = 'none';
-        document.getElementById('button_liv').style.display='none';
+
+        document.getElementById(id_loction).style.border = 'none';
+        document.getElementById(id_Button).style.display='none';
        payload="0";
-    }
+    
     console.log(payload);
 });
 
