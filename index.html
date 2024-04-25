@@ -116,31 +116,53 @@ height: 100%;
 
 
 
-  /*  @media only screen and (max-width: 600px) {
-
-	.img-container {width: 50px;  height: 50px; overflow: hidden; position: relative;} 
-.img-container img { width: 100%; height: auto; display: block; position: absolute; top: 50%;left: 50%;transform: translate(-50%, -50%);}
-    .device_name{font-size: 13px;font-weight: bold;}
-    .zone{font-size:10px;padding-top: 3px;}
-
-}
-   @media only screen and (min-width: 600px) {
-
-	.img-container {width: 60px;  height: 60px; overflow: hidden; position: relative;} 
-.img-container img { width: 100%; height: auto; display: block; position: absolute; top: 50%;left: 50%;transform: translate(-50%, -50%);}
-    .device_name{font-size: 15px;font-weight: bold;}
-    .zone{font-size:13px;padding-top: 3px;}
-    td{ box-shadow: 0.5px 0.5px 3px 0.5px gray; border-radius: 10px; padding-left: 15px;padding-right: 20px; padding-top:10px; padding-bottom:10px ; width: 30%};
+.popup {
+  width: 70%;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius:20px;
+ 
+    z-index: 9999;
 }
 
-@media only screen and (min-width: 1024px) {
-    
-	.img-container {width: 80px;  height: 80px; overflow: hidden; position: relative;} 
-.img-container img { width: 100%; height: auto; display: block; position: absolute; top: 50%;left: 50%;transform: translate(-50%, -50%);}
-   .device_name{font-size: 17px;font-weight: bold;}
-    .zone{font-size:15px;padding-top: 3px;}
-    .main_div {width: 80%;margin: 0 auto;}
-    .dotdiv{width: 80%;}}*/
+.popup-content {
+    text-align: center;
+}
+.pop_button{width: 100%; border-top:solid; border-width: .5px; border-color:gray; position:relative;}
+
+#yesButton, #noButton {
+width: 49%;  
+height: 47px;
+ border-left: solid;
+ border-color: gray;
+ border-width: 0.5px;
+float: right;
+color:blue;
+
+  }
+#yesButton{border-left: none; color:red}
+
+.pop_button p{ text-align:center;    transform: translate(0%);margin-top:3vw;}
+
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 9998;
+  cursor: pointer;
+}
+
 	</style>
 </head>
 <body>
@@ -162,7 +184,7 @@ height: 100%;
                 <img src="resources\image\living.png" class="img_td" alt="living" >
                 <p><b>Living Room</b></p>
                 <div class="infoBox" id="inf_liv">*Device battery is running low</div>
-                <div><button id="button_liv">reset</button></div>
+                <div><button id="button_liv" onclick="actionClose('button_liv')">reset</button></div>
             </div>  
             <div id="msb"> 
                 <div class="battery "style=" "> <div class="progress" id="battery_msb"></div> </div>
@@ -223,10 +245,57 @@ height: 100%;
                             </div>  
  </div>
  <br><br>
+
+ <div id="popup" class="popup">
+    <div style="padding: 20px;">   <div class="popup-content">
+      <p>Are you sure you want to Reset Alarm?</p>  </div></div>
+  <div class="pop_button">
+      <div id="noButton"><p>No</p></div>
+        <div id="yesButton"><p>Yes</p></div></div>
+  </div>
+  <div id="overlay"></div>
+  
     <script>
 document.getElementById('liv').style.border = '.43vw solid #FF3827';
 document.getElementById('button_liv').style.display='block';
 document.getElementById('inf_kitchen').style.display='block';
+
+
+
+
+
+
+var payload
+  function actionClose(id1){
+  
+        document.getElementById('popup').style.display = 'block';
+        document.getElementById("overlay").style.display = "block";
+    id1Value=id1;
+   
+  }
+document.getElementById('yesButton').addEventListener('click', function() {
+ 
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById("overlay").style.display = "none";
+    if (id1Value) {
+        document.getElementById('liv').style.border = 'none';
+        document.getElementById('button_liv').style.display='none';
+       payload="0";
+    }
+    console.log(payload);
+});
+
+document.getElementById('noButton').addEventListener('click', function() {
+
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById("overlay").style.display = "none";
+    if (id1Value) {
+        payload="1";
+    }
+    console.log(payload);
+});
+
+
     </script>
 </body>
 </html>
