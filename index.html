@@ -98,19 +98,18 @@ height: 100%;
 
   .sensores button {
     position: absolute;
-    width: 15vw;
-    height: 5vw;
+    width: 13vw;
+    height: 6vw;
     margin-top: 10; /* Adjust the margin-top value as needed */
     font-size: 3vw;
-    left: 88.5%;
-    top: 65%;
+    left: 89.5%;
+    top: 64%;
     transform: translate(-50%, -50%);
    display: none;
    border-radius: 1vw;
-   background-color: #FFA007;
+   background-color: #D83C3C;
    border: none;
-   color:black
-
+   color:white;
    
 }
 
@@ -178,15 +177,15 @@ color:blue;
     
             <div id="liv"> 
             <div class="battery "style=" "> <div class="progress" id="battery_liv"></div> </div>
-                <img src="resources\image\living.png" class="img_td" alt="living" >
-                <p><b>Living Room</b></p>
+                <img src="resources\image\lv4.png" class="img_td" alt="living" >
+                <p>Living Room</p>
                 <div class="infoBox" id="inf_liv">*Device battery is running low</div>
                 <div><button id="button_liv" onclick="actionClose('liv','button_liv')">reset</button></div>
             </div>  
             <div id="msb"> 
                 <div class="battery "style=" "> <div class="progress" id="battery_msb"></div> </div>
-                    <img src="resources\image\master.png" class="img_td" alt="cctv" >
-                    <p><b> Master Bedroom </b></p>
+                    <img src="resources\image\master.png" class="img_td" alt="master" >
+                    <p> Master Bedroom </p>
                     <div class="infoBox" id="inf_msb">*Device battery is running low</div>
                     <div><button id="button_msb" onclick="actionClose('msb','button_msb')">reset</button></div>
                 </div>  
@@ -194,7 +193,7 @@ color:blue;
             <div id="br1"> 
                 <div class="battery "style=" "> <div class="progress" id="battery_br1"></div> </div>
                     <img src="resources\image\bedroom.png" class="img_td" alt="cctv" >
-                    <p><b>Bedroom 1</b></p>
+                    <p>Bedroom 1</p>
                     <div class="infoBox" id="inf_br1">*Device battery is running low</div>
                     <div><button id="button_br1" onclick="actionClose('br1','button_br1')">reset</button></div>
                 </div>  
@@ -204,7 +203,7 @@ color:blue;
                 <div id="br2"> 
                     <div class="battery "style=" "> <div class="progress" id="battery_br2"></div> </div>
                         <img src="resources\image\bedroom.png" class="img_td" alt="cctv" >
-                        <p><b>Bedroom 2</b></p>
+                        <p>Bedroom 2</p>
                         <div class="infoBox" id="inf_br2">*Device battery is running low</div>
                         <div><button id="button_br2"onclick="actionClose('br2','button_br2')">reset</button></div>
                     </div>  
@@ -213,15 +212,15 @@ color:blue;
                     <div id="br3"> 
                         <div class="battery "style=" "> <div class="progress" id="battery_br3"></div> </div>
                             <img src="resources\image\bedroom.png" class="img_td" alt="cctv" >
-                            <p><b>Bedroom 3</b></p>
+                            <p>Bedroom 3</p>
                             <div class="infoBox" id="inf_br3">*Device battery is running low</div>
                             <div><button id="button_br3"onclick="actionClose('br3','button_br3')">reset</button></div>
                         </div>
                         
                         <div id="kitchen"> 
                             <div class="battery "style=" "> <div class="progress" id="battery_kitchen"></div> </div>
-                                <img src="resources\image\kitchn.png" class="img_td" alt="cctv" >
-                                <p><b>Kitchen</b></p>
+                                <img src="resources\image\kitchen.png" class="img_td" alt="cctv" >
+                                <p>Kitchen</p>
                                 <div class="infoBox" id="inf_kitchen">*Device battery is running low</div>
                                 <div><button id="button_kitchen"onclick="actionClose('kitchen','button_kitchen')">reset</button></div>
                             </div>  
@@ -229,14 +228,14 @@ color:blue;
                     <div id="pantry"> 
                         <div class="battery "style=" "> <div class="progress" id="battery_pantry"></div> </div>
                             <img src="resources\image\pantry.png" class="img_td" alt="cctv" >
-                            <p><b>Pantry Room</b></p>
+                            <p>Pantry </p>
                             <div class="infoBox" id="inf_pantry">*Device battery is running low</div>
                             <div><button id="button_pantry"onclick="actionClose('pantry','button_pantry')">reset</button></div>
                         </div>  
                         <div id="servant"> 
                             <div class="battery "style=" "> <div class="progress" id="battery_servant"></div> </div>
                                 <img src="resources\image\servant.png" class="img_td" alt="ser" >
-                                <p><b>Servant Room</b></p>
+                                <p>Servant Room</p>
                                 <div class="infoBox" id="inf_servant">*Device battery is running low</div>
                                 <div><button id="button_servant"onclick="actionClose('servant','button_servant')">reset</button></div>
                             </div>  
@@ -254,9 +253,7 @@ color:blue;
   
     <script>
 document.getElementById('liv').style.border = '.6vw solid #FF3827';
-document.getElementById('br3').style.border = '.8vw solid #FFA007';
 document.getElementById('button_liv').style.display='block';
-document.getElementById('button_br3').style.display='block';
 document.getElementById('inf_kitchen').style.display='block';
 
 
@@ -270,7 +267,7 @@ var payload,id_loction,id_Button;
         document.getElementById('popup').style.display = 'block';
         document.getElementById("overlay").style.display = "block";
         id_loction=idL;
-        d_Button=idB;
+        id_Button=idB;
 
    
   }
